@@ -4,11 +4,46 @@
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
 	// Find a path from start to end (The current implementation is obviously insufficient)
-	std::deque<Node*> path;
+
+	Node* Current = start;
+
+	std::deque<Node*> open;
+	std::deque<Node*> close;
+
+	open.push_front(start);
+
+	while (!open.empty())
+	{
+		for (int i = 0; i < open.size(); i++)
+		{
+			for (int j = 0; j < open.size(); j++)
+			{
+				if (open[i] > open[j - 1])
+				{
+					Node* temp = open[i];
+					open[i] = open[j - 1];
+					open[j] = temp;
+				}
+			}
+		}
+
+		Node* Current = open[0];
+
+		if (Current == end)
+			return close;
+
+		open.pop_front();
+
+		close.push_front(Current);
+
+	}
+
+
+	/*std::deque<Node*> path;
 	path.push_back(start);
 	path.push_back(start);
-	path.push_back(end);
-	return path;
+	path.push_back(end);*/
+	return close;
 }
 
 void NodeGraph::drawGraph(Node* start)
