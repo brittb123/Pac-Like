@@ -1,27 +1,35 @@
 #include "NodeGraph.h"
-#include "Node.h"
-#include "Edge.h"
 #include <raylib.h>
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
-	// Find a path from start to end (The current implementation is obviously insufficient)
+	 //Find a path from start to end (The current implementation is obviously insufficient)
 
+	// A empty list just for returning if a node is null
+	std::deque<Node*> empty;
+
+	// A iterator to hold the current node
 	Node* Current = start;
 
+	// Checks if the nodes passed in isnt a null pointer
+	if (!start || !end)
+		return empty;
+
+	// Creates two list to store the nodes checked and next to be checked
 	std::deque<Node*> open;
-	std::deque<Node*> close;
+	std::deque<Node*> closed;
 
-
+	// Pushes the front starting node to the open list
 	open.push_front(start);
 
 	while (!open.empty())
 	{
+		// A Bubble sort by the f score to organize the list
 		for (int i = 0; i < open.size(); i++)
 		{
 			for (int j = 0; j < open.size(); j++)
 			{
-				if (open[i] > open[j - 1])
+				if (open[i]->fScore > open[j]->fScore)
 				{
 					Node* temp = open[i];
 					open[i] = open[j - 1];
@@ -30,51 +38,83 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 			}
 		}
 
+		// Current is set to be the first node of the opened list
 		Node* Current = open[0];
 
+		// Checks if the current node is the end node 
 		if (Current == end)
-			return close;
+		{
+			// Marks the end Node was Reached and returns the list
+			end->Reached = true;
+			return open;
+		}
 
+		// Removes the first node in the open list and adds it to the closed list
 		open.pop_front();
+		closed.push_front(Current);
 
-		close.push_front(Current);
+		// A For Loop to go through all the edges of the Iterator
+		for (int i = 0; i < Current->edge.size(); i++)
+		{
+			// A Node pointer to hold the end of the edge
+			Node* EndEdge = nullptr;
 
+			if (Current = Current->edge[i]->ConnecectedNode2)
+				EndEdge = Current->edge[i]->ConnecectedNode1;
 
+			else
+			{
+				EndEdge = Current->edge[i]->ConnecectedNode1;
+			}
+
+			// Checks if the Node is in the closed list
+			if (closed[i] == EndEdge)
+			{
+				// The G, F, and H score is calculated for use for the following
+				float G = Current->gScore + Current->edge[i]->cost;
+				float H = EndEdge->hScore;
+				float F = G + H;
+
+				// If the node is in the opened list
+				if (open[i] == EndEdge)
+				{
+					// The bool that marks if it has reached a node is set true
+					EndEdge->Reached = true;
+
+					// The G, F, and H score is set to the ones calculated earlier
+					EndEdge->gScore = G;
+					EndEdge->hScore = H;
+					EndEdge->fScore = F;
+
+					// The previous of the node is set to be the Iterator
+					EndEdge->previous = Current;
+				}
+
+				// Else if the F score is less than the node's left score then this block is used
+				else if (F < EndEdge->fScore)
+				{
+					// The Node's Reached Bool is set to be true as a flag
+					EndEdge->Reached = true;
+
+					// The F, G, and H score is set to the scores calculated earlier
+					EndEdge->gScore = G;
+					EndEdge->hScore = H;
+					EndEdge->fScore = F;
+
+					// The previous of the node is set to be the Iterator
+					EndEdge->previous = Current;
+				}
+			}
+		}
 	}
 
-	for (int i = 0; i < Current->edge.size(); i++)
-	{
-		Node* EndEdge = nullptr;
-		if (Current = Current->edge[i]->NodeConnection2)
-			EndEdge = Current->edge[i]->NodeConnection1;
+	return closed;
 
-		else
-		{
-			if (Current = Current->edge[i]->NodeConnection1)
-				EndEdge = Current->edge[i]->NodeConnection2;
-		}
-
-		if (close[i] == EndEdge)
-			return close;
-
-		int CombinedCost = Current->gScore + Current->edge[i]->cost;
-
-		if (open[i] == EndEdge)
-		{
-			EndEdge->Reached = true;
-
-		}
-	}
-
-
-
-
-
-	/*std::deque<Node*> path;
-	path.push_back(start);
-	path.push_back(start);
-	path.push_back(end);*/
-	return close;
+	//std::deque<Node*> path;
+	//path.push_back(start);
+	//path.push_back(start);
+	//path.push_back(end);
+	//return path;
 }
 
 void NodeGraph::drawGraph(Node* start)

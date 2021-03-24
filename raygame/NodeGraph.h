@@ -9,10 +9,12 @@ namespace NodeGraph
 
 	struct Edge
 	{
-		Node* NodeConnection1;
-		Node* NodeConnection2;
+		
 		Node* target;
 		float cost;
+		Node* ConnecectedNode1;
+		Node* ConnecectedNode2;
+		
 	};
 
 	struct Node
@@ -20,6 +22,8 @@ namespace NodeGraph
 		MathLibrary::Vector2 position;
 		std::vector<Edge*> edge;
 		float gScore;
+		float hScore;
+		float fScore;
 		Node* previous;
 		bool Reached;
 

@@ -77,12 +77,6 @@
     <ClCompile Include="PursueDecision.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Edge.cpp">
-      <Filter>Engine Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Engine Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -144,12 +138,6 @@
     </ClInclude>
     <ClInclude Include="PursueDecision.h">
       <Filter>Pac Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Edge.h">
-      <Filter>Engine Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Engine Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
