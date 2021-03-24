@@ -1,4 +1,5 @@
 #include "NodeGraph.h"
+#include "Edge.h"
 #include <raylib.h>
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
@@ -10,6 +11,7 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 	std::deque<Node*> open;
 	std::deque<Node*> close;
 
+	
 	open.push_front(start);
 
 	while (!open.empty())
@@ -35,6 +37,7 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		open.pop_front();
 
 		close.push_front(Current);
+
 
 	}
 
