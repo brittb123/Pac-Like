@@ -32,7 +32,7 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 				if (open[i]->fScore > open[j]->fScore)
 				{
 					Node* temp = open[i];
-					open[i] = open[j - 1];
+					open[i] = open[j];
 					open[j] = temp;
 				}
 			}
@@ -54,24 +54,21 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		closed.push_front(Current);
 
 		// A For Loop to go through all the edges of the Iterator
-		for (int i = 0; i < Current->edge.size(); i++)
+		for (int i = 0; i < Current->connections.size(); i++)
 		{
+
+
 			// A Node pointer to hold the end of the edge
 			Node* EndEdge = nullptr;
 
-			if (Current = Current->edge[i]->ConnecectedNode2)
-				EndEdge = Current->edge[i]->ConnecectedNode1;
-
-			else
-			{
-				EndEdge = Current->edge[i]->ConnecectedNode1;
-			}
+			if (Current = Current->connections[i].ConnecectedNode2)
+				EndEdge = Current->connections[i].ConnecectedNode1;
 
 			// Checks if the Node is in the closed list
 			if (closed[i] == EndEdge)
 			{
 				// The G, F, and H score is calculated for use for the following
-				float G = Current->gScore + Current->edge[i]->cost;
+				float G = Current->gScore + Current->connections[i].cost;
 				float H = EndEdge->hScore;
 				float F = G + H;
 
