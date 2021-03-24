@@ -1,4 +1,5 @@
 #include "NodeGraph.h"
+#include "Node.h"
 #include "Edge.h"
 #include <raylib.h>
 
@@ -11,7 +12,7 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 	std::deque<Node*> open;
 	std::deque<Node*> close;
 
-	
+
 	open.push_front(start);
 
 	while (!open.empty())
@@ -40,6 +41,33 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 
 
 	}
+
+	for (int i = 0; i < Current->edge.size(); i++)
+	{
+		Node* EndEdge = nullptr;
+		if (Current = Current->edge[i]->NodeConnection2)
+			EndEdge = Current->edge[i]->NodeConnection1;
+
+		else
+		{
+			if (Current = Current->edge[i]->NodeConnection1)
+				EndEdge = Current->edge[i]->NodeConnection2;
+		}
+
+		if (close[i] == EndEdge)
+			return close;
+
+		int CombinedCost = Current->gScore + Current->edge[i]->cost;
+
+		if (open[i] == EndEdge)
+		{
+			EndEdge->Reached = true;
+
+		}
+	}
+
+
+
 
 
 	/*std::deque<Node*> path;
