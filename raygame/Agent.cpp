@@ -6,30 +6,35 @@ Agent::Agent()
 	: Actor()
 {
 	m_maxForce = 1;
+	m_CloseRadius = 5;
 }
 
 Agent::Agent(float x, float y, float collisionRadius, float maxSpeed, float maxForce, char icon)
 	: Actor(x, y, collisionRadius, maxSpeed, icon)
 {
 	m_maxForce = maxForce;
+	m_CloseRadius = 5;
 }
 
 Agent::Agent(float x, float y, float collisionRadius, float maxSpeed, float maxForce, int color)
 	: Actor(x, y, collisionRadius, maxSpeed, color)
 {
 	m_maxForce = maxForce;
+	m_CloseRadius = 5;
 }
 
 Agent::Agent(float x, float y, float collisionRadius, float maxSpeed, float maxForce, Sprite* sprite)
 	: Actor(x, y, collisionRadius, maxSpeed, sprite)
 {
 	m_maxForce = maxForce;
+	m_CloseRadius = 5;
 }
 
 Agent::Agent(float x, float y, float collisionRadius, float maxSpeed, float maxForce, const char* spriteFilePath)
 	: Actor(x, y, collisionRadius, maxSpeed, spriteFilePath)
 {
 	m_maxForce = maxForce;
+	m_CloseRadius = 5;
 }
 
 void Agent::update(float deltaTime)

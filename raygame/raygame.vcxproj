@@ -167,6 +167,8 @@
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="DecisionBehavior.cpp" />
+    <ClCompile Include="EvadeBehavior.cpp" />
+    <ClCompile Include="EvadePathFinder.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Ghost.cpp" />
     <ClCompile Include="KeyboardBehavior.cpp" />
@@ -175,8 +177,6 @@
     <ClCompile Include="NodeGraph.cpp" />
     <ClCompile Include="Pac.cpp" />
     <ClCompile Include="PathfindBehavior.cpp" />
-    <ClCompile Include="PursueDecision.cpp" />
-    <ClCompile Include="PursuePathBehavior.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />
     <ClCompile Include="SeekPathBehavior.cpp" />
@@ -184,12 +184,12 @@
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ABDecision.h" />
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Behavior.h" />
-    <ClInclude Include="Decision.h" />
     <ClInclude Include="DecisionBehavior.h" />
+    <ClInclude Include="EvadeBehavior.h" />
+    <ClInclude Include="EvadePathFinder.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Ghost.h" />
     <ClInclude Include="KeyboardBehavior.h" />
@@ -197,8 +197,6 @@
     <ClInclude Include="NodeGraph.h" />
     <ClInclude Include="Pac.h" />
     <ClInclude Include="PathfindBehavior.h" />
-    <ClInclude Include="PursueDecision.h" />
-    <ClInclude Include="PursuePathBehavior.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SeekBehavior.h" />
     <ClInclude Include="SeekPathBehavior.h" />

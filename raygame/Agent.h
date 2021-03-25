@@ -4,6 +4,9 @@
 #include <vector>
 
 class Behavior;
+class SeekBehavior;
+
+
 
 class Agent : public Actor
 {
@@ -60,10 +63,15 @@ public:
 	/// <param name="behavior"></param>
 	void addBehavior(Behavior* behavior);
 
+	SeekBehavior* getSeek() { return m_seekBehavior; }
+
 private:
 	std::vector<Behavior*> m_behaviorList;
 
 	MathLibrary::Vector2 m_force = { 0, 0 };
+	float m_CloseRadius;
 	float m_maxForce;
+	SeekBehavior* m_seekBehavior;
+
 };
 

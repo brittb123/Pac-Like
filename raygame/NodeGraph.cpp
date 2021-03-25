@@ -3,7 +3,7 @@
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
-	 //Find a path from start to end (The current implementation is obviously insufficient)
+	/* Find a path from start to end (The current implementation is obviously insufficient)*/
 
 	// A empty list just for returning if a node is null
 	std::deque<Node*> empty;
@@ -107,11 +107,11 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 
 	return closed;
 
-	//std::deque<Node*> path;
-	//path.push_back(start);
-	//path.push_back(start);
-	//path.push_back(end);
-	//return path;
+	/*std::deque<Node*> path;
+	path.push_back(start);
+	path.push_back(start);
+	path.push_back(end);
+	return path;*/
 }
 
 void NodeGraph::drawGraph(Node* start)

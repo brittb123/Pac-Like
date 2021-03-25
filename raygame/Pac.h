@@ -17,5 +17,6 @@ public:
 
 private:
 	KeyboardBehavior* m_keyboardBehavior;
+	
 };
 

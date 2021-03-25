@@ -8,6 +8,7 @@ Pac::Pac(float x, float y, float maxSpeed)
 {
 	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
 	addBehavior(m_keyboardBehavior);
+	
 }
 
 Pac::~Pac()

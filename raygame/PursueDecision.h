@@ -1,5 +1,6 @@
 #pragma once
 #include "ABDecision.h"
+
 class PursueDecision :
 	public ABDecision
 {

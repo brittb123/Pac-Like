@@ -59,9 +59,6 @@
     <ClCompile Include="NodeGraph.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PursuePathBehavior.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SeekPathBehavior.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
@@ -74,7 +71,10 @@
     <ClCompile Include="ABDecision.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PursueDecision.cpp">
+    <ClCompile Include="EvadeBehavior.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EvadePathFinder.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -118,25 +118,19 @@
     <ClInclude Include="NodeGraph.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PursuePathBehavior.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SeekPathBehavior.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PathfindBehavior.h">
       <Filter>Engine Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Decision.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DecisionBehavior.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ABDecision.h">
+    <ClInclude Include="EvadeBehavior.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PursueDecision.h">
+    <ClInclude Include="EvadePathFinder.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
   </ItemGroup>
