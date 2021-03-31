@@ -56,8 +56,6 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		// A For Loop to go through all the edges of the Iterator
 		for (int i = 0; i < Current->connections.size(); i++)
 		{
-
-
 			// A Node pointer to hold the end of the edge
 			Node* EndEdge = Current->connections[i].target;
 
